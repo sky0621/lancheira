@@ -1,9 +1,13 @@
-import { Col, Row } from "antd";
+import { Col, Image, Row } from "antd";
 import { Header } from "@/app/_components/Header";
 import { Content } from "@/app/_components/Content";
 import { Layout } from "@/app/_components/Layout";
+import { cld } from "@/lib/cloudinary";
 
 const Home = () => {
+  const img1 = cld.image("v1714892528/lancheira/20221222_llryw2");
+  console.info(img1);
+  console.info(img1.toURL());
   return (
     <main>
       <Layout>
@@ -17,7 +21,7 @@ const Home = () => {
               lg={{ flex: "20%" }}
               xl={{ flex: "10%" }}
             >
-              <div>a</div>
+              <Image src={img1.toURL()} />
             </Col>
           </Row>
         </Content>
