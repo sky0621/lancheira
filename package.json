@@ -1,30 +1,48 @@
 {
-  "name": "lancheira",
-  "version": "0.1.0",
+  "name": "my-react-app",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "buildcf": "npx @cloudflare/next-on-pages@1",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "run-p lint:*",
+    "lint:tsc": "tsc --noEmit",
+    "lint:prettier": "prettier . --check",
+    "lint:eslint": "eslint . --ext .ts,.tsx",
+    "fix": "run-s fix:*",
+    "fix:prettier": "prettier . --write",
+    "fix:eslint": "eslint . --ext .ts,.tsx --fix",
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix",
+    "*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "@cloudinary/react": "^1.13.0",
-    "@cloudinary/url-gen": "^1.19.0",
-    "antd": "^5.17.0",
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.11.2",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
-    "typescript": "^5"
+    "typescript": "^5.2.2",
+    "undefined": "^0.1.0",
+    "vite": "^5.2.0",
+    "vite-tsconfig-paths": "^4.3.2"
   }
 }
